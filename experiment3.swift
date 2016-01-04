@@ -1,4 +1,4 @@
-// experiment 2
+// experiment 3
 
 import Cocoa
 
@@ -15,7 +15,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         window.opaque = false
         window.center()
-        window.title = "Experiment 2"
+        window.title = "Experiment 3"
+
+        let button = NSButton(frame: NSMakeRect(20, 100, 180, 30))
+        button.bezelStyle = .ThickSquareBezelStyle
+        button.title = "Click Me"
+        button.target = NSApp
+        window.contentView!.addSubview(button)
 
         window.makeKeyAndOrderFront(window)
         window.level = 1
