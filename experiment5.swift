@@ -1,8 +1,9 @@
-// experiment 4
+// experiment 5
 
 import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var text = NSTextView(frame: NSMakeRect(20, 150, 180, 30))
     let window = NSWindow()
 
     func applicationDidFinishLaunching(aNotification : NSNotification) {
@@ -15,19 +16,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         window.opaque = false
         window.center()
-        window.title = "Experiment 4"
+        window.title = "Experiment 5"
 
-        let text = NSTextView(frame: NSMakeRect(20, 150, 180, 30))
+        let button = NSButton(frame: NSMakeRect(20, 100, 280, 30))
+
+        button.bezelStyle = .ThickSquareBezelStyle
+        button.title = "Click me to change the text"
+        button.target = self
+        button.action = "action:"
+        window.contentView!.addSubview(button)
 
         text.string = "Text View"
-        text.editable = true
+        text.editable = false
         text.backgroundColor = window.backgroundColor
-        text.selectable = true
-
+        text.selectable = false
         window.contentView!.addSubview(text)
 
         window.makeKeyAndOrderFront(window)
         window.level = 1
+    }
+
+    func action(sender: AnyObject) {
+        text.string = "The button has been pressed"
     }
 }
 
